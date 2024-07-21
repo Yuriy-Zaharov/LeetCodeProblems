@@ -30,6 +30,15 @@ class Solution {
                     resultCArray[resultIndex] = s.charAt(sIndex);
                     resultIndex++;
                 }
+
+                // Fill last sub column if it doesn't have own column
+                if (colNum == numCols - 1 && rowNum < numRows - 1) {
+                    sIndex = (colNum + 1) * (2 * numRows - 2) - rowNum;
+                    if (sIndex < sLength) {
+                        resultCArray[resultIndex] = s.charAt(sIndex);
+                        resultIndex++;
+                    }
+                }
             }
         }
         return new String(resultCArray);
